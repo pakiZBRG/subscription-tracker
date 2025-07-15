@@ -47,10 +47,10 @@ export const register = async (req, res, next) => {
 };
 
 export const signIn = async (req, res, next) => {
-  const { email, password } = req.body;
+  const { name, email, password } = req.body;
 
   try {
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ $or: [{ email }, { name }] });
     if (!user) {
       const error = new Error("User is not found");
       error.statusCode = 404;
