@@ -1,35 +1,30 @@
 import { Router } from "express";
 
+import authorize from "../middleware/auth.middleware.js";
+import { getUser, getUsers } from "../controllers/user.controller.js";
+
 const userRouter = Router();
 
-userRouter.get('/', (req, res) => {
-  res.send({
-    message: 'GET all users'
-  })
-})
+userRouter.get("/", getUsers);
 
-userRouter.get('/:id', (req, res) => {
-  res.send({
-    message: 'GET id user'
-  })
-})
+userRouter.get("/:id", authorize, getUser);
 
-userRouter.post('/', (req, res) => {
+userRouter.post("/", (req, res) => {
   res.send({
-    message: 'POST new user'
-  })
-})
+    message: "POST new user",
+  });
+});
 
-userRouter.put('/:id', (req, res) => {
+userRouter.put("/:id", (req, res) => {
   res.send({
-    message: 'PUT user'
-  })
-})
+    message: "PUT user",
+  });
+});
 
-userRouter.delete('/:id', (req, res) => {
+userRouter.delete("/:id", (req, res) => {
   res.send({
-    message: 'DELETE user'
-  })
-})
+    message: "DELETE user",
+  });
+});
 
 export default userRouter;

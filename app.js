@@ -6,7 +6,7 @@ import userRouter from "./routes/user.routes.js";
 import authRouter from "./routes/auth.routes.js";
 import subscriptionRouter from "./routes/subscription.routes.js";
 import connectToDB from "./database/mongodb.js";
-import errorMiddleware from "./middleware/errorMiddleware.js";
+import errorMiddleware from "./middleware/error.middleware.js";
 
 const app = express();
 
