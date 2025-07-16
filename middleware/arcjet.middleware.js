@@ -17,7 +17,7 @@ const arcjetMiddleware = async (req, res, next) => {
 
     next();
   } catch (error) {
-    console.log(`Arcjet Middleware Error:`);
+    console.log(`Arcjet Middleware Error: ${error}`);
     next(error);
   }
 };
