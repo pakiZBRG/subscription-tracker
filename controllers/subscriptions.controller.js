@@ -59,3 +59,47 @@ export const getUserSubscriptions = async (req, res, next) => {
     next(error);
   }
 };
+
+export const updateSubscription = async (req, res, next) => {
+  try {
+    const subscription = await Subscription.findById(req.params.id);
+    if (!subscription) {
+      const error = new Error("Subscription not found");
+      error.statusCode = 404;
+      throw error;
+    }
+
+    await Subscription.updateOne({ _id: req.params.id }, { ...req.body });
+
+    res.status(200).json({ message: "Subscription has been updated" });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const deleteSubscription = async (req, res, next) => {
+  try {
+    let subscription = await Subscription.findById(req.params.id);
+    if (!subscription) {
+      const error = new Error("Subscription not found");
+      error.statusCode = 404;
+      throw error;
+    }
+
+    subscription = await Subscription.find({
+      _id: req.params.id,
+      user: req.user._id,
+    });
+    if (subscription.length === 0) {
+      const error = new Error("Subscription doesn't belong to you");
+      error.statusCode = 404;
+      throw error;
+    }
+
+    await Subscription.deleteOne({ _id: req.params.id });
+
+    res.status(200).json({ message: "Subscription has been deleted" });
+  } catch (error) {
+    next(error);
+  }
+};

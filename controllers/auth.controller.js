@@ -60,7 +60,7 @@ export const signIn = async (req, res, next) => {
   try {
     const user = await User.findOne({ $or: [{ email }, { name }] });
     if (!user) {
-      const error = new Error("User is not found");
+      const error = new Error("Invalid name/email.");
       error.statusCode = 404;
       throw error;
     }
