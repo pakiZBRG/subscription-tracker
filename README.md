@@ -1,4 +1,4 @@
-Simple backend API application for creating, tracking and renewing subscription for individual users.
+### Simple backend API application for creating, tracking and renewing subscription for individual users.
 
 - **Express** routes and controllers
 - **MongoDB** logic with **Mongoose**
@@ -8,3 +8,5 @@ Simple backend API application for creating, tracking and renewing subscription 
 - Error handling middleware
 - Scheduling emails with **upsatsh**
 - Sending mails with **NodeMailer**
+
+Deployed live on [Railway](https://subscription-tracker-production-033d.up.railway.app/)
