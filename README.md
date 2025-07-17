@@ -9,4 +9,4 @@
 - Scheduling emails with **upsatsh**
 - Sending mails with **NodeMailer**
 
-Deployed live on [Railway](https://subscription-tracker-production-033d.up.railway.app/)
+Deployed live on [Railway](https://subscription-tracker.up.railway.app/)
