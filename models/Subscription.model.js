@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import dayjs from "dayjs";
 
 const subscriptionsSchema = new mongoose.Schema(
   {
@@ -50,7 +51,7 @@ const subscriptionsSchema = new mongoose.Schema(
       type: Date,
       required: true,
       validate: {
-        validator: (value) => value <= new Date(),
+        validator: (value) => dayjs(value).isAfter(dayjs()),
         message: "Start date must be in the past",
       },
     },
@@ -79,7 +80,7 @@ subscriptionsSchema.pre("save", function (next) {
     const renewalPeriods = {
       weekly: 7,
       monthly: 30,
-      quarterly: 90,
+      quarterly: 92,
       yearly: 365,
     };
 
