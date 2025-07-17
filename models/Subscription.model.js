@@ -35,11 +35,11 @@ const subscriptionsSchema = new mongoose.Schema(
         "politics",
         "other",
       ],
-      required: true,
+      required: [true, "Category is requried"],
     },
     paymentMethod: {
       type: String,
-      required: true,
+      required: [true, "Payment method is requried"],
       trim: true,
     },
     status: {
@@ -49,7 +49,7 @@ const subscriptionsSchema = new mongoose.Schema(
     },
     startDate: {
       type: Date,
-      required: true,
+      required: [true, "Start date is requried"],
       validate: {
         // validator: (value) => dayjs(value).isAfter(dayjs()),
         validator: (value) => value <= new Date(),
