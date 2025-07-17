@@ -1,6 +1,10 @@
 Simple backend API application for creating, tracking and renewing subscription for individual users.
 
-- Secured with **arcjet** for rate limiting and bot activity
 - **Express** routes and controllers
 - **MongoDB** logic with **Mongoose**
-- Auth, validation and error handling middleware
+- Securing routes with **arcjet** for rate limiting and bot activity
+- Authentication with **jwt**
+- Validation with **express-validator**
+- Error handling middleware
+- Scheduling emails with **upsatsh**
+- Sending mails with **NodeMailer**

@@ -51,7 +51,8 @@ const subscriptionsSchema = new mongoose.Schema(
       type: Date,
       required: true,
       validate: {
-        validator: (value) => dayjs(value).isAfter(dayjs()),
+        // validator: (value) => dayjs(value).isAfter(dayjs()),
+        validator: (value) => value <= new Date(),
         message: "Start date must be in the past",
       },
     },
